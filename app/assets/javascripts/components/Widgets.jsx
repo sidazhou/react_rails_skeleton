@@ -2,7 +2,7 @@ var Widgets = React.createClass({
   render: function() {
     return (
       <div className="widgets">
-        <FooWidgets/>
+        <h2>h2 title smaller and h2er</h2>
       </div>
     );
   }
