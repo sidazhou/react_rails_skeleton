@@ -1,21 +1,13 @@
+console.log('components.js has been run...'); // somehow this is ran twice, why?!
 
-//= require_self
-//= require react_ujs
+// require(''); // somehow this is necessary, why?! Otherwise we get: "SyntaxError: Unexpected token import"
+import React from 'react';
+import ReactDOM from 'react-dom';
 
-var React = require('react');
-
-//add other modules as needed, eg:
-//ReactDnD = require('react-dnd');
-
-// import injectTapEventPlugin from 'react-tap-event-plugin';
-var injectTapEventPlugin = require("react-tap-event-plugin");
-
-// Needed for onTouchTap
-// Can go away when react 1.0 release
-// Check this repo:
-// https://github.com/zilverline/react-tap-event-plugin
+// tap plugin for material ui, remove upon release of react 1.x
+import injectTapEventPlugin from "react-tap-event-plugin";
 injectTapEventPlugin();
 
+import Widgets from './components/Widgets.jsx';
 
-var Widgets = require('./components/Widgets.jsx');
-
+ReactDOM.render( <Widgets />, document.getElementById('react_component') );
