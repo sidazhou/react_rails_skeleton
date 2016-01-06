@@ -1,0 +1,12 @@
+{
+  "name": "react-sample",
+  "devDependencies": {
+    "browserify": "^10.2.4",
+    "browserify-incremental": "^3.0.1",
+    "reactify": "^1.1.1",
+    "react": "^0.13.3"
+  },
+  "engines": {
+    "node": ">= 0.10"
+  }
+}
