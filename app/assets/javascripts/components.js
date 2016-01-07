@@ -7,5 +7,4 @@ import injectTapEventPlugin from "react-tap-event-plugin";
 injectTapEventPlugin();
 
 import Widgets from './components/Widgets.jsx';
-
-ReactDOM.render( <Widgets />, document.getElementById('react_component') );
+ReactDOM.render( <Widgets label='=== my button ===' />, document.getElementById('react_component') );
