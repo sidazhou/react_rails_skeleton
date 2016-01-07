@@ -6,7 +6,7 @@ var Widgets = React.createClass({
     return (
       <div className="widgets">
         <h2>h2 title smaller and h2er</h2>
-        <RaisedButton label='button'></RaisedButton>
+        <RaisedButton label='mui button'></RaisedButton>
       </div>
     );
   }
