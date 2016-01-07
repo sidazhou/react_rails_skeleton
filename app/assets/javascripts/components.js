@@ -1,5 +1,3 @@
-console.log('components.js has been run...'); // somehow this is ran twice, why?!
-
 // require(''); // somehow this is necessary, why?! Otherwise we get: "SyntaxError: Unexpected token import"
 import React from 'react';
 import ReactDOM from 'react-dom';
