@@ -11,23 +11,4 @@ visit `localhost:3000`
 
 == README
 
-Followed the tutorial
-
-http://ttrmw.co.uk/code/rails_and_react_with_npm_modules.html
-
-
-noted that:
-"**If you are using react-rails or experience any issues with browiserfy-rails 2.x, please use the 1.5.x versions until 2.x is stabilized. Please see the issues for discussions and feel free to post your experience. The use of react-rails with browserify-rails is a bit of an anti-pattern in terms of going to CommonJS so it may never be supported. Consider using a browserify transform for React support."
-
-https://github.com/browserify-rails/browserify-rails
-
-
-with some confusion from:
-
-https://github.com/browserify-rails/browserify-rails/issues/48
-
-
-Had some weird react not rendering anything issues. Hence uninstall react_rails, browserify-rails seems to work fine by itself. Although no server side rendering
-
-
-Chose babelify over reactify because of reasons.
+Please see ./my_notes.txt for my notes about this scaffold.

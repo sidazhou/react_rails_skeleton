@@ -1,0 +1,40 @@
+
+Followed the tutorial
+
+http://ttrmw.co.uk/code/rails_and_react_with_npm_modules.html
+
+
+noted that:
+"**If you are using react-rails or experience any issues with browiserfy-rails 2.x, please use the 1.5.x versions until 2.x is stabilized. Please see the issues for discussions and feel free to post your experience. The use of react-rails with browserify-rails is a bit of an anti-pattern in terms of going to CommonJS so it may never be supported. Consider using a browserify transform for React support."
+
+https://github.com/browserify-rails/browserify-rails
+
+
+with some confusion from:
+
+https://github.com/browserify-rails/browserify-rails/issues/48
+
+Had some weird react not rendering anything issues. Hence uninstall react_rails, browserify-rails seems to work fine by itself. Although no server side rendering
+
+=======================================
+Chose babelify over reactify because of reasons.
+
+=======================================
+After fiddling around with
+addComponentAsRefTo Invariant Violation
+https://gist.github.com/jimfb/4faa6cbfb1ef476bd105
+https://github.com/callemall/material-ui/issues/477
+http://stackoverflow.com/questions/26572753/browserify-loading-reactjs-twice-with-react-router
+http://stackoverflow.com/questions/31169760/how-to-avoid-react-loading-twice-with-webpack-when-developing
+http://stackoverflow.com/questions/28519287/what-does-only-a-reactowner-can-have-refs-mean?lq=1
+http://stackoverflow.com/questions/29719284/how-to-avoid-reactjs-to-be-included-twice-in-a-rails-and-reactjs-environment
+
+
+I've decided to use
+npm v3.5.3 (Was 2.x before)
+node v4.2.4
+
+npm v3.x seemed to solve this problem, while no other method helped
+also added node_modules to the repo
+
+=======================================
