@@ -18,7 +18,7 @@ export default class Widgets1 extends React.Component {
         <RaisedButton
           label="Simple Controlled LeftNav"
           onClick={this.handleToggle} />
-        <LeftNav openRight={true} open={false}>
+        <LeftNav openRight={true} open={this.state.open}>
           <MenuItem>Menu Item</MenuItem>
           <MenuItem>Menu Item 2</MenuItem>
         </LeftNav>
