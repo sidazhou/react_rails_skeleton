@@ -13,7 +13,7 @@ export default class Widgets3 extends React.Component {
     var text = this.state.liked ? 'like' : 'haven\'t liked';
     return (
       <p onClick={this.handleClick.bind(this)}>
-        You {text} this. Click to toggle.
+        You {text} this. Click to toggle. -Widgets3
       </p>
     );
   }

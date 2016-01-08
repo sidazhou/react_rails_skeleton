@@ -11,7 +11,7 @@ var Widgets2 = React.createClass({
     var text = this.state.liked ? 'like' : 'haven\'t liked';
     return (
       <p onClick={this.handleClick}>
-        You {text} this. Click to toggle.
+        You {text} this. Click to toggle. -Widgets2
       </p>
     );
   }
