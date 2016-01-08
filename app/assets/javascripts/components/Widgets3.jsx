@@ -7,9 +7,7 @@ export default class Widgets3 extends React.Component {
     this.state = {liked: false};
   }
 
-  handleClick() {
-    this.setState({liked: !this.state.liked});
-  }
+  handleClick = () => this.setState({liked: !this.state.liked});
 
   render() {
     var text = this.state.liked ? 'like' : 'haven\'t liked';
