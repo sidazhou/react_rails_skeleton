@@ -14,7 +14,7 @@ export default class Widgets3 extends React.Component {
   render() {
     var text = this.state.liked ? 'like' : 'haven\'t liked';
     return (
-      <p onClick={this.handleClick}>
+      <p onClick={this.handleClick.bind(this)}>
         You {text} this. Click to toggle.
       </p>
     );

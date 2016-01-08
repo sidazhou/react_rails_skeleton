@@ -1,3 +1,4 @@
+// require()
 import React from 'react';
 import LeftNav from 'material-ui/lib/left-nav';
 import MenuItem from 'material-ui/lib/menus/menu-item';
@@ -7,6 +8,7 @@ export default class Widgets1 extends React.Component {
 
   constructor(props) {
     super(props);
+    this.handleToggle = this.handleToggle.bind(this);
     this.state = {open: false};
   }
 
@@ -14,15 +16,13 @@ export default class Widgets1 extends React.Component {
     this.setState({open: !this.state.open});
   }
 
-  // handleToggle = () => this.setState({open: !this.state.open});
-
   render() {
     return (
       <div>
         <RaisedButton
           label="Simple Controlled LeftNav"
           onClick={this.handleToggle} />
-        <LeftNav openRight={true} open={false}>
+        <LeftNav openRight={false} open={false}>
           <MenuItem>Menu Item</MenuItem>
           <MenuItem>Menu Item 2</MenuItem>
         </LeftNav>
