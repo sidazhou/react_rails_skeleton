@@ -42,4 +42,7 @@ Using weird syntax in components, since arrow functions seems not working with b
 http://stackoverflow.com/questions/33634111/babelify-6-with-browserify-and-the-es2015-preset-is-not-working
 http://stackoverflow.com/questions/29577977/react-ref-and-setstate-not-working-with-es6
 
+=======================================
+arrow functions made work with { "presets": ["es2015", "react", "stage-0"] } instead of { "presets": ["es2015", "react"] } in .babelrc
+
 
