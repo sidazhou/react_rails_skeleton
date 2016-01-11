@@ -1,7 +1,7 @@
 // require(''); // somehow this is necessary, why?! Otherwise we get: "SyntaxError: Unexpected token import"
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Router, Route, Link, browserHistory, IndexRoute } from 'react-router';
+import { Router, Route, browserHistory, IndexRoute } from 'react-router';
 
 import WidgetsController from './components/WidgetsController.jsx';
 import Widgets from './components/Widgets.jsx';
@@ -37,7 +37,7 @@ ReactDOM.render(
   <Router history={browserHistory}>
     <Route path="/" component={App}>
       <IndexRoute component={WidgetsController}/>
-      <Route path="all" component={Widgets} />
+      <Route path="widgets" component={Widgets} />
       <Route path="1" component={Widgets1} />
       <Route path="2" component={Widgets2} />
       <Route path="*" component={PageNotFound} />

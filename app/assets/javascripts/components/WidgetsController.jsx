@@ -1,15 +1,15 @@
-import React from 'react'
+import React from 'react';
+import { Link } from 'react-router';
+import Widgets from './Widgets.jsx';
 
-// First we import some modules...
-import { Router, Route, Link, browserHistory, IndexRoute } from 'react-router'
-
-import Widgets from './Widgets.jsx'; // broken material ui
+// this would be the smart component, that feeds data to child, which are dumb
 
 const WidgetsController = React.createClass({
   render() {
     return (
       <div>
         <p>I'm WidgetsController</p>
+        <Link to={`/widgets`}> link to widgets.jsx </Link>
         <Widgets></Widgets>
       </div>
     )
