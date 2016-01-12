@@ -1,0 +1,4 @@
+.sd {
+  background: green; /* not able to override mui inline style*/
+  border-radius: 10px; /* not able to override mui inline style?*/
+}

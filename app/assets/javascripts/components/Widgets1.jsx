@@ -8,7 +8,7 @@ export default class Widgets1 extends React.Component {
   constructor(props) {
     super(props);
     this.state = {open: false};
-  }
+  };
 
   handleToggle = () => this.setState({open: !this.state.open});
 
@@ -16,6 +16,8 @@ export default class Widgets1 extends React.Component {
     return (
       <div>
         <RaisedButton
+          className="sd-raised-button"
+          labelStyle={{color: '#0FF'}}
           label="Simple Controlled LeftNav"
           onClick={this.handleToggle} />
         <LeftNav openRight={true} open={this.state.open}>
@@ -24,5 +26,5 @@ export default class Widgets1 extends React.Component {
         </LeftNav>
       </div>
     );
-  }
+  };
 }

@@ -2,9 +2,33 @@ import React from 'react';
 import { Link } from 'react-router';
 import Widgets from './Widgets.jsx';
 
+
+import ThemeManager from 'material-ui/lib/styles/theme-manager';
+import MyRawTheme from './MyRawTheme.js';
+
+
 // this would be the smart component, that feeds data to child, which are dumb
 
-const WidgetsController = React.createClass({
+export default class WidgetsController extends React.Component {
+
+  //the key passed through context must be called "muiTheme"
+  // get childContextTypes() {
+  //   return {
+  //     muiTheme: React.PropTypes.object,
+  //   };
+  // };
+
+  static childContextTypes = {
+      muiTheme: React.PropTypes.object
+  };
+
+  getChildContext() {
+    return {
+      muiTheme: ThemeManager.getMuiTheme(MyRawTheme),
+    };
+  };
+
+
   render() {
     return (
       <div>
@@ -13,7 +37,5 @@ const WidgetsController = React.createClass({
         <Widgets></Widgets>
       </div>
     )
-  }
-})
-
-export default WidgetsController;
+  };
+}
