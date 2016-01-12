@@ -3,10 +3,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Router, Route, browserHistory, IndexRoute } from 'react-router';
 
-import WidgetsController from './components/WidgetsController.jsx';
-import Widgets from './components/Widgets.jsx';
-import Widgets1 from './components/Widgets1.jsx';
-import Widgets2 from './components/Widgets2.jsx';
+import WidgetsController from './components/widgets/WidgetsController.jsx';
+import Widgets from './components/widgets/Widgets.jsx';
+import Widgets1 from './components/widgets/Widgets1.jsx';
+import Widgets2 from './components/widgets/Widgets2.jsx';
 
 // tap plugin for material ui, remove upon release of react 1.x
 import injectTapEventPlugin from "react-tap-event-plugin";
@@ -42,7 +42,7 @@ ReactDOM.render(
       <Route path="2" component={Widgets2} />
       <Route path="*" component={PageNotFound} />
     </Route>
-  </Router>, document.getElementById('react_component') );
+  </Router>, document.getElementById('react_entry_point') );
 
 
 

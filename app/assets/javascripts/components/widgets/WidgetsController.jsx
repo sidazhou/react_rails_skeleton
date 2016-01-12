@@ -4,7 +4,7 @@ import Widgets from './Widgets.jsx';
 
 
 import ThemeManager from 'material-ui/lib/styles/theme-manager';
-import MyRawTheme from './MyRawTheme.js';
+import _MyRawTheme from '../../util/_MyRawTheme.js';
 
 
 // this would be the smart component, that feeds data to child, which are dumb
@@ -18,13 +18,13 @@ export default class WidgetsController extends React.Component {
   //   };
   // };
 
-  static childContextTypes = {
+  static childContextTypes = { //https://github.com/callemall/material-ui/issues/866
       muiTheme: React.PropTypes.object
   };
 
   getChildContext() {
     return {
-      muiTheme: ThemeManager.getMuiTheme(MyRawTheme),
+      muiTheme: ThemeManager.getMuiTheme(_MyRawTheme),
     };
   };
 

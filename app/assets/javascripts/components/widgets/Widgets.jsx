@@ -4,11 +4,11 @@ import Widgets1 from './Widgets1.jsx'; // broken material ui
 import Widgets2 from './Widgets2.jsx'; // working exmaple from react written in es5
 import Widgets3 from './Widgets3.jsx'; // same as Widget2, but in es6
 
-import AppBarExampleIconMenu from './AppBarExampleIconMenu.jsx';
-import DatePickerExampleSimple from './DatePickerExampleSimple.jsx';
-import BadgeExampleContent from './BadgeExampleContent.jsx';
-import ReactGithubExample1 from './ReactGithubExample1.jsx';
-import SelectFieldExampleSimple from './SelectFieldExampleSimple.jsx';
+import AppBarExampleIconMenu from '../muiexamples/AppBarExampleIconMenu.jsx';
+import DatePickerExampleSimple from '../muiexamples/DatePickerExampleSimple.jsx';
+import BadgeExampleContent from '../muiexamples/BadgeExampleContent.jsx';
+import ReactGithubExample1 from '../muiexamples/ReactGithubExample1.jsx';
+import SelectFieldExampleSimple from '../muiexamples/SelectFieldExampleSimple.jsx';
 
 export default class Widgets extends React.Component {
   render() {

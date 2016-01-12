@@ -45,4 +45,9 @@ http://stackoverflow.com/questions/29577977/react-ref-and-setstate-not-working-w
 =======================================
 arrow functions made work with { "presets": ["es2015", "react", "stage-0"] } instead of { "presets": ["es2015", "react"] } in .babelrc
 
+=======================================
+folder structure
+
+http://stackoverflow.com/questions/29945230/reactjs-flux-application-directory-structure
+http://andrewcallahan.com/towards-a-simpler-react-folder-structure/
 
