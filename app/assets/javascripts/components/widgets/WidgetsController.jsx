@@ -10,13 +10,20 @@ import _MyRawTheme from '../../util/_MyRawTheme.js';
 // this would be the smart component, that feeds data to child, which are dumb
 
 export default class WidgetsController extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {message4widget3: ['widgetscontroller_default_state_1','widgetscontroller_default_state_2']};
+  };
 
-  //the key passed through context must be called "muiTheme"
-  // get childContextTypes() {
-  //   return {
-  //     muiTheme: React.PropTypes.object,
-  //   };
-  // };
+
+  componentDidMount() {
+    $.get('api/v1/messages', function(data) {
+      this.setState({
+        message4widget3: [data[0].title, data[0].body]
+      });
+    }.bind(this));
+  };
+
 
   static childContextTypes = { //https://github.com/callemall/material-ui/issues/866
       muiTheme: React.PropTypes.object
@@ -34,7 +41,7 @@ export default class WidgetsController extends React.Component {
       <div>
         <p>I'm WidgetsController</p>
         <Link to={`/widgets`}> link to widgets.jsx </Link>
-        <Widgets></Widgets>
+        <Widgets message4widget3={this.state.message4widget3} ></Widgets>
       </div>
     )
   };

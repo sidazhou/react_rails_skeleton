@@ -17,7 +17,7 @@ export default class Widgets extends React.Component {
       	<p>I'm Widgets.jsx</p>
         <Widgets1></Widgets1>
         <Widgets2></Widgets2>
-        <Widgets3></Widgets3>
+        <Widgets3 message={this.props.message4widget3} ></Widgets3>
         <SelectFieldExampleSimple></SelectFieldExampleSimple>
         <AppBarExampleIconMenu></AppBarExampleIconMenu>
         <DatePickerExampleSimple></DatePickerExampleSimple>
