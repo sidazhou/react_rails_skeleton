@@ -24,5 +24,9 @@ module Reactrails
     config.active_record.raise_in_transactional_callbacks = true
 
     config.browserify_rails.commandline_options = "--transform [ babelify --presets [ es2015 react stage-0 ] ]"
+
+    # Auto-load API and its subdirectories
+    config.paths.add File.join('app', 'api'), glob: File.join('**', '*.rb')
+    config.autoload_paths += Dir[Rails.root.join('app', 'api', '*')]
   end
 end
