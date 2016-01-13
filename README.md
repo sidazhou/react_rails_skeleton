@@ -2,6 +2,8 @@
 
 `bundle install`
 
+`rake db:create db:migrate`
+
 `npm install`
 
 `rails s`
