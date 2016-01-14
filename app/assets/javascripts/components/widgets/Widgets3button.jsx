@@ -1,6 +1,9 @@
 import React from 'react';
 import RaisedButton from 'material-ui/lib/raised-button';
 
+import WidgetActions from '../../actions/WidgetActions.js'
+
+
 export default class Widgets3button extends React.Component {
 
   constructor(props) {
@@ -8,7 +11,8 @@ export default class Widgets3button extends React.Component {
   };
 
   handleClick = () => {
-    console.log('hep pressed');
+    console.log('hep Widgets3button pressed');
+    WidgetActions.changeWidget3data();
   };
 
   render() {

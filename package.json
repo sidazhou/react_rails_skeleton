@@ -7,6 +7,7 @@
     "babelify": "^7.2.0",
     "browserify": "^12.0.1",
     "browserify-incremental": "^3.0.1",
+    "flux": "^2.1.1",
     "history": "^1.13.1",
     "material-ui": "^0.14.2",
     "react": "^0.14.6",
