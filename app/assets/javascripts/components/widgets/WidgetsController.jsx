@@ -19,7 +19,7 @@ export default class WidgetsController extends React.Component {
   componentDidMount() {
     $.get('api/v1/messages', function(data) {
       this.setState({
-        message4widget3: [data[0].title, data[0].body]
+        message4widget3: [data[0].title, data[0].body] //for format look at the api
       });
     }.bind(this));
   };
