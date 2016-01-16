@@ -8,6 +8,8 @@ import Widgets from './components/widgets/Widgets.jsx';
 import Widgets1 from './components/widgets/Widgets1.jsx';
 import Widgets2 from './components/widgets/Widgets2.jsx';
 
+import NotUsed from './util/reduxExamples.js';
+
 // tap plugin for material ui, remove upon release of react 1.x
 import injectTapEventPlugin from "react-tap-event-plugin";
 injectTapEventPlugin();
@@ -21,7 +23,7 @@ const App = React.createClass({
       </div>
     )
   }
-})
+});
 
 const PageNotFound = React.createClass({
   render() {
@@ -43,6 +45,3 @@ ReactDOM.render(
       <Route path="*" component={PageNotFound} />
     </Route>
   </Router>, document.getElementById('react_entry_point') );
-
-
-
