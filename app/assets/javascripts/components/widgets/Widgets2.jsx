@@ -1,33 +1,15 @@
 import React from 'react';
-import { Button } from 'react-bootstrap';
+import { Button, Glyphicon } from 'react-bootstrap';
+// import { LinkContainer } from 'react-router-bootstrap';
 
-var Widgets2 = React.createClass({
-  render: function() {
+export default class Widgets2 extends React.Component {
+  render() {
     return (
-      <Button bsStyle="primary">Primary</Button>
+      <div>
+        <Button bsStyle="info">
+          <Glyphicon glyph="link"/> My Button
+        </Button>
+      </div>
     );
   }
-});
-
-export default Widgets2;
-
-// import React from 'react';
-
-// var Widgets2 = React.createClass({
-//   getInitialState: function() {
-//     return {liked: false};
-//   },
-//   handleClick: function(event) {
-//     this.setState({liked: !this.state.liked});
-//   },
-//   render: function() {
-//     var text = this.state.liked ? 'like' : 'haven\'t liked';
-//     return (
-//       <p onClick={this.handleClick}>
-//         You {text} this. Click to toggle. -Widgets2
-//       </p>
-//     );
-//   }
-// });
-
-// export default Widgets2;
+}
