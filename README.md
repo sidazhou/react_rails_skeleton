@@ -18,7 +18,7 @@ README
 Please see `./my_notes.txt` for my notes about this scaffold.
 
 
-Heroku Deploymeny
+Deployment
 =================
 `heroku addons:create heroku-postgresql:hobby-dev`
 
@@ -27,4 +27,5 @@ Heroku Deploymeny
 `heroku buildpacks:add --index 1 heroku/nodejs`
 
 https://devcenter.heroku.com/articles/heroku-postgresql
+
 https://devcenter.heroku.com/articles/using-multiple-buildpacks-for-an-app
