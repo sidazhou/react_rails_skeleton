@@ -3,15 +3,15 @@ import WidgetStores from '../../stores/WidgetStores.js'
 
 var Widgets4 = React.createClass({
   getInitialState: function() {
-    return {counter: WidgetStores.getState()};
+    return {counter: WidgetStores.getState().counter};
   },
   handleIncrement: function(event) {
     WidgetStores.dispatch({ type: 'INCREMENT' });
-    this.setState({counter: WidgetStores.getState()});
+    this.setState({counter: WidgetStores.getState().counter});
   },
   handleDecrement: function(event) {
     WidgetStores.dispatch({ type: 'DECREMENT' });
-    this.setState({counter: WidgetStores.getState()});
+    this.setState({counter: WidgetStores.getState().counter});
   },
   render: function() {
     return (

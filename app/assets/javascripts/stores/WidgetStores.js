@@ -1,4 +1,4 @@
-import { createStore } from 'redux';
+import { createStore, combineReducers } from 'redux';
 
 const counter = (state = 0, action) => {  // reducer
   if (action.type === 'INCREMENT') {
@@ -10,7 +10,20 @@ const counter = (state = 0, action) => {  // reducer
   }
 };
 
-const WidgetStores = createStore(counter, 2); // createStore(reducer, initialState)
+const myStoreText = (state = 'my default store text', action) => {
+  if (action.type === 'CHANGE_WIDGET5_TEXT') {
+    return 'Y U CLICK THIS TEXT';
+  }
+  return state;
+};
+
+
+const WidgetsApp = combineReducers({
+  counter,
+  myStoreText,
+});
+
+const WidgetStores = createStore(WidgetsApp); // createStore(reducer, initialState)
 
 WidgetStores.subscribe(() => {
   console.log(WidgetStores.getState());

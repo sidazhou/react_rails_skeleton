@@ -72,7 +72,7 @@ const visibilityFilter = (state = 'SHOW_ALL', action) => { // reducer
 //     todos: todos(state.todos, action),
 //     visibilityFilter: visibilityFilter(state.visibilityFilter, action),
 //   };
-// };
+// }; // almost the same as combineReducers
 
 const todoApp = combineReducers({
   todos,
