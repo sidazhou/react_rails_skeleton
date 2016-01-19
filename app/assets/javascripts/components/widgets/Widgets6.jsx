@@ -34,6 +34,8 @@ export default class Widgets6 extends React.Component {
   render() {
     return (
       <div>
+        ==========<br/>
+        Widgets6:<br/>
         <input value={this.state.inputValue} onChange={this.handleInputChange} />
         <br/>
         <button onClick={this.handleClick}>
@@ -46,6 +48,7 @@ export default class Widgets6 extends React.Component {
               </li>
           ))}
         </ul>
+        ==========<br/>
       </div>
     );
   }

@@ -18,7 +18,7 @@ export default class Widgets6 extends React.Component {
   render() {
     return (
       <div>
-        <h2>todolist counter: {this.state.counter}</h2>
+        <h2 style={{display: 'inline'}}>todolist counter: {this.state.counter}</h2> -Widgets1
       </div>
     );
   }
