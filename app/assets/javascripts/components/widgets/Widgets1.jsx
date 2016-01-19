@@ -1,30 +1,25 @@
 import React from 'react';
-import LeftNav from 'material-ui/lib/left-nav';
-import MenuItem from 'material-ui/lib/menus/menu-item';
-import RaisedButton from 'material-ui/lib/raised-button';
+import WidgetStores from '../../stores/WidgetStores.js';
 
-export default class Widgets1 extends React.Component {
-
+export default class Widgets6 extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {open: false};
-  };
+    this.state = {
+      counter: WidgetStores.getState().todos.length,
+    };
 
-  handleToggle = () => this.setState({open: !this.state.open});
+    WidgetStores.subscribe(() => {
+      this.setState({
+        counter: WidgetStores.getState().todos.length,
+      });
+    });
+  }
 
   render() {
     return (
       <div>
-        <RaisedButton
-          className="sd-raised-button"
-          labelStyle={{color: '#0FF'}}
-          label="Simple Controlled LeftNav"
-          onClick={this.handleToggle} />
-        <LeftNav openRight={true} open={this.state.open}>
-          <MenuItem>Menu Item</MenuItem>
-          <MenuItem>Menu Item 2</MenuItem>
-        </LeftNav>
+        <h2>todolist counter: {this.state.counter}</h2>
       </div>
     );
-  };
+  }
 }

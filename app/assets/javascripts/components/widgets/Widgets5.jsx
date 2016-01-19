@@ -18,7 +18,7 @@ export default class Widgets5 extends React.Component {
   render() {
     return (
       <div style={{ color: 'grey' }} onClick={this.handleClick}>
-        {this.state.text}
+        {this.state.text + ' -Widgets5'}
       </div>
     );
   }
