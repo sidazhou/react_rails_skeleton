@@ -8,7 +8,7 @@ export default class Widgets6 extends React.Component {
       counter: WidgetStores.getState().todos.length,
     };
 
-    WidgetStores.subscribe(() => {
+    WidgetStores.subscribe(() => {  // TODO need to be unsubscribed when component unmounts!
       this.setState({
         counter: WidgetStores.getState().todos.length,
       });

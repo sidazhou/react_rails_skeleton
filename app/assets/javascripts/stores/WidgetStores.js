@@ -61,7 +61,6 @@ const visibilityFilter = (state = 'SHOW_ALL', action) => { // reducer
 };
 
 
-
 const WidgetsApp = combineReducers({
   counter,
   myStoreText,
