@@ -1,19 +1,25 @@
 import React from 'react';
-import WidgetStores from '../../stores/WidgetStores.js'
+import WidgetStores from '../../stores/WidgetStores.js';
 
-var Widgets4 = React.createClass({
-  getInitialState: function() {
-    return {counter: WidgetStores.getState().counter};
-  },
-  handleIncrement: function(event) {
+export default class Widgets4 extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      counter: WidgetStores.getState().counter,
+    };
+  };
+
+  handleIncrement = (event) => {
     WidgetStores.dispatch({ type: 'INCREMENT' });
     this.setState({counter: WidgetStores.getState().counter});
-  },
-  handleDecrement: function(event) {
+  };
+
+  handleDecrement = (event) => {
     WidgetStores.dispatch({ type: 'DECREMENT' });
     this.setState({counter: WidgetStores.getState().counter});
-  },
-  render: function() {
+  };
+
+  render() {
     return (
       <p onClick={this.handleIncrement}
          onMouseEnter={this.handleDecrement} >
@@ -21,6 +27,4 @@ var Widgets4 = React.createClass({
       </p>
     );
   }
-});
-
-export default Widgets4;
+}
