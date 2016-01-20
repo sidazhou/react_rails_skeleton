@@ -2,7 +2,7 @@ import React from 'react';
 import WidgetStores from '../../stores/WidgetStores.js';
 
 import Widgets6button from './Widgets6button.jsx';
-import { addTodo, toggleTodo } from '../../actions/WidgetActions.js';
+import { addTodo, toggleTodo, getDataFromApi } from '../../actions/WidgetActions.js';
 
 let nextTodoId = 0;
 
@@ -10,7 +10,7 @@ export default class Widgets6 extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      inputValue: '',
+      inputValue: WidgetStores.getState().inputValue,
       text: WidgetStores.getState().myStoreText,
       todos: WidgetStores.getState().todos,
     };
@@ -23,12 +23,6 @@ export default class Widgets6 extends React.Component {
   };
 
   handleClick = () => {
-    // WidgetStores.dispatch({
-    //   type: 'ADD_TODO',
-    //   text: this.state.inputValue,
-    //   id: nextTodoId++,
-    // });
-
     WidgetStores.dispatch(addTodo(this.state.inputValue));
 
     this.setState({
@@ -42,6 +36,10 @@ export default class Widgets6 extends React.Component {
     this.setState({
       todos: WidgetStores.getState().todos,
     })
+  };
+
+  handleGetData = () => {
+    WidgetStores.dispatch(getDataFromApi())
   };
 
   filterTodosView = (todos, filter) => {
@@ -66,6 +64,7 @@ export default class Widgets6 extends React.Component {
     this.unsubscribe = WidgetStores.subscribe(() => {
       this.setState({
         todos: this.filterTodosView(WidgetStores.getState().todos, WidgetStores.getState().visibilityFilter),
+        inputValue: WidgetStores.getState().inputValue,
       });
     });
   }
@@ -91,6 +90,9 @@ export default class Widgets6 extends React.Component {
           Add Todo
         </button>
 
+        <button onClick={ this.handleGetData }>
+          get data from api
+        </button>
 
         <ul>
           { this.state.todos.map( (todo) => (

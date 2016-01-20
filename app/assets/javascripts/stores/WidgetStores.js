@@ -61,12 +61,21 @@ const visibilityFilter = (state = 'SHOW_ALL', action) => { // reducer
   }
 };
 
+const inputValue = (state = 'default text not from api', action) => { // reducer
+  switch (action.type) {
+    case 'SET_DATA_FROM_API':
+      return action.inputText;
+    default:
+      return state;
+  }
+};
 
 const WidgetsApp = combineReducers({
   counter,
   myStoreText,
   todos,
   visibilityFilter,
+  inputValue,
 });
 
 const WidgetStores = applyMiddleware(thunk)(createStore)(WidgetsApp);
