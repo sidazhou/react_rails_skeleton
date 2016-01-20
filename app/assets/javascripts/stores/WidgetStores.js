@@ -1,4 +1,5 @@
-import { createStore, combineReducers } from 'redux';
+import { createStore, combineReducers, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
 
 const counter = (state = 0, action) => {  // reducer
   if (action.type === 'INCREMENT') {
@@ -68,7 +69,7 @@ const WidgetsApp = combineReducers({
   visibilityFilter,
 });
 
-const WidgetStores = createStore(WidgetsApp); // createStore(reducer, initialState)
+const WidgetStores = applyMiddleware(thunk)(createStore)(WidgetsApp);
 
 WidgetStores.subscribe(() => {
   console.log(WidgetStores.getState());
