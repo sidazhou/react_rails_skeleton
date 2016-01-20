@@ -2,7 +2,7 @@ import React from 'react';
 import WidgetStores from '../../stores/WidgetStores.js';
 
 import Widgets6button from './Widgets6button.jsx';
-
+import { addTodo, toggleTodo } from '../../actions/WidgetActions.js';
 
 let nextTodoId = 0;
 
@@ -23,11 +23,14 @@ export default class Widgets6 extends React.Component {
   };
 
   handleClick = () => {
-    WidgetStores.dispatch({
-      type: 'ADD_TODO',
-      text: this.state.inputValue,
-      id: nextTodoId++,
-    });
+    // WidgetStores.dispatch({
+    //   type: 'ADD_TODO',
+    //   text: this.state.inputValue,
+    //   id: nextTodoId++,
+    // });
+
+    WidgetStores.dispatch(addTodo(this.state.inputValue));
+
     this.setState({
       todos: WidgetStores.getState().todos,
       inputValue: '',
@@ -35,10 +38,7 @@ export default class Widgets6 extends React.Component {
   };
 
   handleToggle = (todo) => {
-    WidgetStores.dispatch({
-      type: 'TOGGLE_TODO',
-      id: todo.id,
-    });
+    WidgetStores.dispatch(toggleTodo(todo));
     this.setState({
       todos: WidgetStores.getState().todos,
     })
@@ -63,7 +63,7 @@ export default class Widgets6 extends React.Component {
   };
 
   componentWillMount() {
-    this.subscription = WidgetStores.subscribe(() => {
+    this.unsubscribe = WidgetStores.subscribe(() => {
       this.setState({
         todos: this.filterTodosView(WidgetStores.getState().todos, WidgetStores.getState().visibilityFilter),
       });
@@ -71,7 +71,7 @@ export default class Widgets6 extends React.Component {
   }
 
   componentWillUnmount() {
-    this.subscription(); // unsubscribe
+    this.unsubscribe(); // unsubscribe
   }
 
   render() {

@@ -12,7 +12,7 @@ export default class Widgets1 extends React.Component {
   }
 
   componentWillMount() {
-    this.subscription = WidgetStores.subscribe(() => {
+    this.unsubscribe = WidgetStores.subscribe(() => {
       this.setState({
         counter: WidgetStores.getState().todos.length,
       });
@@ -20,7 +20,7 @@ export default class Widgets1 extends React.Component {
   }
 
   componentWillUnmount() {
-    this.subscription(); // unsubscribe
+    this.unsubscribe(); // unsubscribe
   }
 
   render() {
