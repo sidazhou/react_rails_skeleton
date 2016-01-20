@@ -2,7 +2,7 @@ import React from 'react';
 import WidgetStores from '../../stores/WidgetStores.js';
 
 import Widgets6button from './Widgets6button.jsx';
-import { addTodo, toggleTodo, getDataFromApi } from '../../actions/WidgetActions.js';
+import { addTodo, toggleTodo, getDataFromApi, setInputValue } from '../../actions/WidgetActions.js';
 
 let nextTodoId = 0;
 
@@ -10,16 +10,17 @@ export default class Widgets6 extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      inputValue: WidgetStores.getState().inputValue,
+      inputValue: 'LOADING...',
       text: WidgetStores.getState().myStoreText,
       todos: WidgetStores.getState().todos,
     };
   };
 
   handleInputChange= (event) => {
-    this.setState({
-      inputValue: event.target.value
-    });
+    // this.setState({
+    //   inputValue: event.target.value
+    // });
+    WidgetStores.dispatch(setInputValue(event.target.value))
   };
 
   handleClick = () => {
@@ -27,8 +28,10 @@ export default class Widgets6 extends React.Component {
 
     this.setState({
       todos: WidgetStores.getState().todos,
-      inputValue: '',
-     })
+      // inputValue: '',
+     });
+
+    WidgetStores.dispatch(setInputValue(''));
   };
 
   handleToggle = (todo) => {
@@ -61,12 +64,14 @@ export default class Widgets6 extends React.Component {
   };
 
   componentWillMount() {
-    this.unsubscribe = WidgetStores.subscribe(() => {
+    this.unsubscribe = WidgetStores.subscribe(() => { // subscribing
       this.setState({
         todos: this.filterTodosView(WidgetStores.getState().todos, WidgetStores.getState().visibilityFilter),
         inputValue: WidgetStores.getState().inputValue,
       });
     });
+
+    WidgetStores.dispatch(getDataFromApi())
   }
 
   componentWillUnmount() {

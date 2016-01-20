@@ -17,9 +17,15 @@ export function toggleTodo(todo) {
   };
 }
 
-export function getDataFromApi() {
+export function setInputValue(text) {
+  return {
+    type: 'SET_INPUT_VALUE',
+    inputText: text,
+  }
+}
 
-  return (dispatch) => {
+export function getDataFromApi() {
+  return (dispatch, getState) => {
     // here starts the code that actually gets executed when the
     //  addTodo action creator is dispatched
 
@@ -31,14 +37,18 @@ export function getDataFromApi() {
     // now that the Store has been notified of the new todo item, we
     // should also notify our server - we'll use here ES6 fetch
     // function to post the data
+
     $.get('/api/v1/messages')
       .done((data) => {
         // you should probably get a real id for your new todo item here,
         // and update your store, but we'll leave that to you
+
+        // In this case, we dont want to change the store value, just the state
         dispatch({
-          type: 'SET_DATA_FROM_API',
+          type: 'SET_INPUT_VALUE',
           inputText: data[0].body,
         });
+
       })
       .fail((err) => {
         console.log(err);
@@ -54,9 +64,4 @@ export function getDataFromApi() {
     // used this action creator
     return null;
   };
-
-
-  // return {
-  //   type: 'GET_DATA_FROM_API',
-  // };
 }

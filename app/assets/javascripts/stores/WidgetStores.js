@@ -63,7 +63,7 @@ const visibilityFilter = (state = 'SHOW_ALL', action) => { // reducer
 
 const inputValue = (state = 'default text not from api', action) => { // reducer
   switch (action.type) {
-    case 'SET_DATA_FROM_API':
+    case 'SET_INPUT_VALUE':
       return action.inputText;
     default:
       return state;
