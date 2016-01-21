@@ -2,6 +2,7 @@ import React from 'react';
 import WidgetStores from '../../stores/WidgetStores.js';
 
 import Widgets6button from './Widgets6button.jsx';
+import Widgets6listItem from './Widgets6listItem.jsx';
 import { addTodo, toggleTodo, getDataFromApi, setInputValue } from '../../actions/WidgetActions.js';
 
 let nextTodoId = 0;
@@ -101,14 +102,10 @@ export default class Widgets6 extends React.Component {
 
         <ul>
           { this.state.todos.map( (todo) => (
-              <li key={todo.id}
-                style={{
-                  color: todo.completed ? 'lightgrey' : 'black',
-                }}
-                onClick={this.handleToggle.bind(this,todo)}>
-                {todo.text}
-              </li>
+            <Widgets6listItem key={todo.id} text={todo.text} onClick={this.handleToggle.bind(this,todo)} completed={todo.completed}/>
           ))}
+
+
         </ul>
         ==========<br/>
       </div>

@@ -35,7 +35,7 @@ export default class Widgets7 extends React.Component {
     return (
       <p onClick={this.handleIncrement}
          onMouseEnter={this.handleDecrement} >
-        My counter is {this.state.counter}. Click to increment. -Widgets7
+        My counter is {this.state.counter}. Click to increment. OMG WHY IM ATTACHED TO Widgets4?? -Widgets7
       </p>
     );
   }
