@@ -1,20 +1,19 @@
 import React from 'react';
-import WidgetStores from '../../stores/WidgetStores.js';
+import store from '../../_react_store.js';
 
 export default class Widgets1 extends React.Component {
   constructor(props) {
     super(props);
+
     this.state = {
-      counter: WidgetStores.getState().todos.length,
+      counter: store.getState().widgets.todos.length,
     };
-
-
   }
 
   componentWillMount() {
-    this.unsubscribe = WidgetStores.subscribe(() => {
+    this.unsubscribe = store.subscribe(() => {
       this.setState({
-        counter: WidgetStores.getState().todos.length,
+        counter: store.getState().widgets.todos.length,
       });
     });
   }

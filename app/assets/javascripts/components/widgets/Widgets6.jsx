@@ -1,5 +1,5 @@
 import React from 'react';
-import WidgetStores from '../../stores/WidgetStores.js';
+import store from '../../_react_store.js';
 
 import Widgets6button from './Widgets6button.jsx';
 import Widgets6listItem from './Widgets6listItem.jsx';
@@ -12,38 +12,35 @@ export default class Widgets6 extends React.Component {
     super(props);
     this.state = {
       inputValue: 'LOADING...',
-      text: WidgetStores.getState().myStoreText,
-      todos: WidgetStores.getState().todos,
+      text: store.getState().widgets.myStoreText,
+      todos: store.getState().widgets.todos,
     };
   };
 
   handleInputChange= (event) => {
-    // this.setState({
-    //   inputValue: event.target.value
-    // });
-    WidgetStores.dispatch(setInputValue(event.target.value))
+    store.dispatch(setInputValue(event.target.value))
   };
 
   handleClick = () => {
-    WidgetStores.dispatch(addTodo(this.state.inputValue));
+    store.dispatch(addTodo(this.state.inputValue));
 
     this.setState({
-      todos: WidgetStores.getState().todos,
+      todos: store.getState().widgets.todos,
       // inputValue: '',
      });
 
-    WidgetStores.dispatch(setInputValue(''));
+    store.dispatch(setInputValue(''));
   };
 
   handleToggle = (todo) => {
-    WidgetStores.dispatch(toggleTodo(todo));
+    store.dispatch(toggleTodo(todo));
     this.setState({
-      todos: WidgetStores.getState().todos,
+      todos: store.getState().widgets.todos,
     })
   };
 
   handleGetData = () => {
-    WidgetStores.dispatch(getDataFromApi())
+    store.dispatch(getDataFromApi())
   };
 
   filterTodosView = (todos, filter) => {
@@ -65,14 +62,14 @@ export default class Widgets6 extends React.Component {
   };
 
   componentWillMount() {
-    this.unsubscribe = WidgetStores.subscribe(() => { // subscribing
+    this.unsubscribe = store.subscribe(() => { // subscribing
       this.setState({
-        todos: this.filterTodosView(WidgetStores.getState().todos, WidgetStores.getState().visibilityFilter),
-        inputValue: WidgetStores.getState().inputValue,
+        todos: this.filterTodosView(store.getState().widgets.todos, store.getState().widgets.visibilityFilter),
+        inputValue: store.getState().widgets.inputValue,
       });
     });
 
-    WidgetStores.dispatch(getDataFromApi())
+    store.dispatch(getDataFromApi())
   }
 
   componentWillUnmount() {

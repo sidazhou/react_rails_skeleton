@@ -13,15 +13,15 @@ export default class Widgets extends React.Component {
   render() {
     return (
       <div style={{ marginLeft: '330px', width: '50%' }}>
-      	<p>I'm Widgets.jsx</p>
-        <Widgets1></Widgets1>
-        <Widgets2></Widgets2>
-        <Widgets3 message={this.props.message4widget3} ></Widgets3>
+        <p>I'm Widgets.jsx</p>
+        <Widgets1/>
+        <Widgets2/>
+        <Widgets3 message={this.props.message4widget3} />
         <Widgets3button/>
-        <Widgets4></Widgets4>
-        <Widgets5></Widgets5>
-        <Widgets6></Widgets6>
-        <Widgets7></Widgets7>
+        <Widgets4/>
+        <Widgets5/>
+        <Widgets6/>
+        <Widgets7/>
       </div>
     );
   }

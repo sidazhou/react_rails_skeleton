@@ -1,5 +1,5 @@
 import React from 'react';
-import WidgetStores from '../../stores/WidgetStores.js';
+import store from '../../_react_store.js';
 
 export default class FilterLink extends React.Component {
   render() {
@@ -7,7 +7,7 @@ export default class FilterLink extends React.Component {
       <a href="#"
         onClick={ e => {
           e.preventDefault();
-          WidgetStores.dispatch({
+          store.dispatch({
             type: 'SET_VISIBILITY_FILTER',
             filter: this.props.filter,
           });

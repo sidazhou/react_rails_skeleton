@@ -1,18 +1,18 @@
 import React from 'react';
-import WidgetStores from '../../stores/WidgetStores.js';
+import store from '../../_react_store.js';
 
 export default class Widgets5 extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = { text: WidgetStores.getState().myStoreText };
+    this.state = { text: store.getState().widgets.myStoreText };
   }
 
   handleClick = () => {
-    WidgetStores.dispatch({
+    store.dispatch({
       type: 'CHANGE_WIDGET5_TEXT'
     })
-    this.setState({ text: WidgetStores.getState().myStoreText })
+    this.setState({ text: store.getState().widgets.myStoreText })
   };
 
   render() {

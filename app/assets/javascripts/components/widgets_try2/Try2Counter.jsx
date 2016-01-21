@@ -1,26 +1,26 @@
 import React from 'react';
-import WidgetTry2Stores from '../../stores/WidgetTry2Stores.js';
+import store from '../../_react_store.js';
 
 export default class Try2Counter extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      counter: WidgetTry2Stores.getState().counter,
+      counter: store.getState().widgetsTry2.counter,
     };
   };
 
   handleIncrement = (event) => {
-    WidgetTry2Stores.dispatch({ type: 'INCREMENT' });
+    store.dispatch({ type: 'INCREMENT' });
   };
 
   handleDecrement = (event) => {
-    WidgetTry2Stores.dispatch({ type: 'DECREMENT' });
+    store.dispatch({ type: 'DECREMENT' });
   };
 
   componentWillMount() {
-    this.unsubscribe = WidgetTry2Stores.subscribe(() => { // subscribing
+    this.unsubscribe = store.subscribe(() => { // subscribing
       this.setState({
-        counter: WidgetTry2Stores.getState().counter,
+        counter: store.getState().widgetsTry2.counter,
       });
     });
   }

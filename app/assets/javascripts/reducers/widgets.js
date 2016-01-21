@@ -1,5 +1,4 @@
-import { createStore, combineReducers, applyMiddleware } from 'redux';
-import thunk from 'redux-thunk';
+import { combineReducers } from 'redux';
 
 const counter = (state = 0, action) => {  // reducer
   if (action.type === 'INCREMENT') {
@@ -70,7 +69,8 @@ const inputValue = (state = 'default text not from api', action) => { // reducer
   }
 };
 
-const WidgetsApp = combineReducers({
+
+const widgets = combineReducers({
   counter,
   myStoreText,
   todos,
@@ -78,10 +78,4 @@ const WidgetsApp = combineReducers({
   inputValue,
 });
 
-const WidgetStores = applyMiddleware(thunk)(createStore)(WidgetsApp);
-
-WidgetStores.subscribe(() => {
-  console.log(WidgetStores.getState());
-});
-
-export default WidgetStores;
+export default widgets;

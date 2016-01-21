@@ -1,26 +1,26 @@
 import React from 'react';
-import WidgetStores from '../../stores/WidgetStores.js';
+import store from '../../_react_store.js';
 
 export default class Widgets4 extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      counter: WidgetStores.getState().counter,
+      counter: store.getState().widgets.counter,
     };
   };
 
   handleIncrement = (event) => {
-    WidgetStores.dispatch({ type: 'INCREMENT' });
+    store.dispatch({ type: 'INCREMENT' });
   };
 
   handleDecrement = (event) => {
-    WidgetStores.dispatch({ type: 'DECREMENT' });
+    store.dispatch({ type: 'DECREMENT' });
   };
 
   componentWillMount() {
-    this.unsubscribe = WidgetStores.subscribe(() => { // subscribing
+    this.unsubscribe = store.subscribe(() => { // subscribing
       this.setState({
-        counter: WidgetStores.getState().counter,
+        counter: store.getState().widgets.counter,
       });
     });
   }

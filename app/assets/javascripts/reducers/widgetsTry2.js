@@ -11,8 +11,8 @@ const counter = (state = 0, action) => {  // reducer
 };
 
 
-const WidgetsTry2reducers = combineReducers({
+const widgetsTry2 = combineReducers({
   counter,
 });
 
-export default WidgetsTry2reducers;
+export default widgetsTry2;
