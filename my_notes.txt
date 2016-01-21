@@ -51,3 +51,31 @@ folder structure
 http://stackoverflow.com/questions/29945230/reactjs-flux-application-directory-structure
 http://andrewcallahan.com/towards-a-simpler-react-folder-structure/
 
+folder naming convention
+./my_folder/
+http://stackoverflow.com/a/20927507/2202107
+
+url naming convention
+/my-url/
+http://stackoverflow.com/questions/10302179/hyphen-underscore-or-camelcase-as-word-delimiter-in-uris
+
+es6 js styling conventions
+https://github.com/airbnb/javascript
+
+=======================================
+VERY USEFUL ARTICLE
+http://danmaz74.me/2015/08/19/from-flux-to-redux-async-actions-the-easy-way/
+
+=======================================
+POSSIBLE (useful) ADDONS
+redux-actions
+redux-promise
+normalizr
+restful
+redux-form
+
+=======================================
+BREAK DOWN TO MULTIPLE "STORES" (AKA REDUCERS)
+look at folder structure of
+https://medium.com/lexical-labs-engineering/redux-best-practices-64d59775802e#.4aonbdvmk
+

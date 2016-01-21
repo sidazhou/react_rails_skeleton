@@ -9,17 +9,10 @@ import Widgets5 from './Widgets5.jsx';
 import Widgets6 from './Widgets6.jsx';
 import Widgets7 from './Widgets7.jsx';
 
-import AppBarExampleIconMenu from '../muiexamples/AppBarExampleIconMenu.jsx';
-import DatePickerExampleSimple from '../muiexamples/DatePickerExampleSimple.jsx';
-import BadgeExampleContent from '../muiexamples/BadgeExampleContent.jsx';
-import ReactGithubExample1 from '../muiexamples/ReactGithubExample1.jsx';
-import SelectFieldExampleSimple from '../muiexamples/SelectFieldExampleSimple.jsx';
-import Divider from 'material-ui/lib/divider';
-
 export default class Widgets extends React.Component {
   render() {
     return (
-      <div style={{marginLeft:'330px', width:'50%'}}>
+      <div style={{ marginLeft: '330px', width: '50%' }}>
       	<p>I'm Widgets.jsx</p>
         <Widgets1></Widgets1>
         <Widgets2></Widgets2>
@@ -29,14 +22,6 @@ export default class Widgets extends React.Component {
         <Widgets5></Widgets5>
         <Widgets6></Widgets6>
         <Widgets7></Widgets7>
-
-        {/*<Divider/>
-
-        <SelectFieldExampleSimple></SelectFieldExampleSimple>
-        <AppBarExampleIconMenu></AppBarExampleIconMenu>
-        <DatePickerExampleSimple></DatePickerExampleSimple>
-        <BadgeExampleContent></BadgeExampleContent>
-        <ReactGithubExample1></ReactGithubExample1>*/}
       </div>
     );
   }
