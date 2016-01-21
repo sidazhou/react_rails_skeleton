@@ -1,7 +1,9 @@
+// testing store namespacing, conflicting with Widgets4
+
 import React from 'react';
 import WidgetStores from '../../stores/WidgetStores.js';
 
-export default class Widgets4 extends React.Component {
+export default class Widgets7 extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -33,7 +35,7 @@ export default class Widgets4 extends React.Component {
     return (
       <p onClick={this.handleIncrement}
          onMouseEnter={this.handleDecrement} >
-        My counter is {this.state.counter}. Click to increment. -Widgets4
+        My counter is {this.state.counter}. Click to increment. -Widgets7
       </p>
     );
   }

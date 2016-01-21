@@ -7,6 +7,7 @@ import Widgets3button from './Widgets3button.jsx';
 import Widgets4 from './Widgets4.jsx';
 import Widgets5 from './Widgets5.jsx';
 import Widgets6 from './Widgets6.jsx';
+import Widgets7 from './Widgets7.jsx';
 
 import AppBarExampleIconMenu from '../muiexamples/AppBarExampleIconMenu.jsx';
 import DatePickerExampleSimple from '../muiexamples/DatePickerExampleSimple.jsx';
@@ -27,6 +28,7 @@ export default class Widgets extends React.Component {
         <Widgets4></Widgets4>
         <Widgets5></Widgets5>
         <Widgets6></Widgets6>
+        <Widgets7></Widgets7>
 
         {/*<Divider/>
 
