@@ -2,6 +2,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Router, Route, browserHistory, IndexRoute, Link } from 'react-router';
+import { Provider } from 'react-redux'
+import store from './_react_store.js';
 
 import WidgetsController from './components/widgets/WidgetsController.jsx';
 import WidgetsTry2controller from './components/widgets_try2/WidgetsTry2controller.jsx';
@@ -11,29 +13,31 @@ import Widgets2 from './components/widgets/Widgets2.jsx';
 
 import MuiexamplesController from './components/muiexamples/MuiexamplesController.jsx';
 
-// import NotUsed from './util/reduxExamples.js';
+// import TestingAKAnotUsed from './util/reduxExamples.js';
 
 // tap plugin for material ui, remove upon release of react 1.x
-import injectTapEventPlugin from "react-tap-event-plugin";
+import injectTapEventPlugin from 'react-tap-event-plugin';
 injectTapEventPlugin();
 
 const App = React.createClass({
   render() {
     return (
-      <div>
-        <p>I'm components.js</p>
-        <Link to={`/`}> link to home </Link>
-        <br/>
-        <Link to={`/widgets`}> link to Widgets.jsx </Link>
-        <br/>
-        <Link to={`/widgets-try2-controller`}> link to WidgetsTry2controller.jsx </Link>
-        <br/>
-        <Link to={`/mui`}> link to muiexmaplesController.jsx </Link>
+      <Provider store={store}>
+        <div>
+          <p>I'm components.js</p>
+          <Link to={`/`}> link to home </Link>
+          <br/>
+          <Link to={`/widgets`}> link to Widgets.jsx </Link>
+          <br/>
+          <Link to={`/widgets-try2-controller`}> link to WidgetsTry2controller.jsx </Link>
+          <br/>
+          <Link to={`/mui`}> link to muiexmaplesController.jsx </Link>
 
-        {this.props.children}
-      </div>
-    )
-  }
+          {this.props.children}
+        </div>
+      </Provider>
+    );
+  },
 });
 
 const PageNotFound = React.createClass({
@@ -42,9 +46,9 @@ const PageNotFound = React.createClass({
       <div>
         <p>HTML ERROR 404</p>
       </div>
-    )
-  }
-})
+    );
+  },
+});
 
 ReactDOM.render(
   <Router history={browserHistory}>

@@ -1,25 +1,26 @@
 import React from 'react';
-import store from '../../_react_store.js';
+import { connect } from 'react-redux';
 
-export default class Widgets5 extends React.Component {
-
-  constructor(props) {
-    super(props);
-    this.state = { text: store.getState().widgets.myStoreText };
-  }
-
-  handleClick = () => {
-    store.dispatch({
-      type: 'CHANGE_WIDGET5_TEXT'
-    })
-    this.setState({ text: store.getState().widgets.myStoreText })
+function mapStateToProps(state) { // react-redux
+  return {
+    text: state.widgets.myStoreText,
   };
+}
 
+function mapDispatchToProps(dispatch) {
+  return {
+    handleClick: () => { dispatch({ type: 'CHANGE_WIDGET5_TEXT' }) },
+  };
+}
+
+class Widgets5 extends React.Component {
   render() {
     return (
-      <div style={{ color: 'grey' }} onClick={this.handleClick}>
-        {this.state.text + ' -Widgets5'}
+      <div style={{ color: 'grey' }} onClick={this.props.handleClick}>
+        {this.props.text + ' -Widgets5'}
       </div>
     );
   }
 }
+
+export default connect(mapStateToProps, mapDispatchToProps)(Widgets5);

@@ -1,3 +1,5 @@
+// testing store namespacing, conflicting with Widgets4
+
 import React from 'react';
 import store from '../../_react_store.js';
 

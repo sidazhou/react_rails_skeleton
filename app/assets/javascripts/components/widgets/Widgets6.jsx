@@ -1,47 +1,40 @@
 import React from 'react';
-import store from '../../_react_store.js';
+import { connect } from 'react-redux';
 
 import Widgets6button from './Widgets6button.jsx';
 import Widgets6listItem from './Widgets6listItem.jsx';
 import { addTodo, toggleTodo, getDataFromApi, setInputValue } from '../../actions/WidgetActions.js';
 
-let nextTodoId = 0;
 
-export default class Widgets6 extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      inputValue: 'LOADING...',
-      text: store.getState().widgets.myStoreText,
-      todos: store.getState().widgets.todos,
-    };
+function mapStateToProps(state) { // react-redux
+  return {
+    todos: state.widgets.todos,
+    visibilityFilter: state.widgets.visibilityFilter,
+    inputValue: state.widgets.inputValue,
   };
+}
 
-  handleInputChange= (event) => {
-    store.dispatch(setInputValue(event.target.value))
+function mapDispatchToProps(dispatch) {
+  return {
+    handleInputChange: (event) => {
+      dispatch(setInputValue(event.target.value))
+    },
+    handleClick: (boundInputVal) => {
+      // dispatch(addTodo(this.props.inputValue)); // .bind(this) somehow doesnt work, this is undefined
+      dispatch(addTodo(boundInputVal)); // hence boundInputVal need to be passed
+      dispatch(setInputValue(''));
+    },
+    handleToggle: (todo) => {
+      dispatch(toggleTodo(todo));
+    },
+    handleGetData: () => {
+      dispatch(getDataFromApi())
+    },
+
   };
+}
 
-  handleClick = () => {
-    store.dispatch(addTodo(this.state.inputValue));
-
-    this.setState({
-      todos: store.getState().widgets.todos,
-      // inputValue: '',
-     });
-
-    store.dispatch(setInputValue(''));
-  };
-
-  handleToggle = (todo) => {
-    store.dispatch(toggleTodo(todo));
-    this.setState({
-      todos: store.getState().widgets.todos,
-    })
-  };
-
-  handleGetData = () => {
-    store.dispatch(getDataFromApi())
-  };
+class Widgets6 extends React.Component {
 
   filterTodosView = (todos, filter) => {
     switch (filter) {
@@ -58,22 +51,10 @@ export default class Widgets6 extends React.Component {
         return todos;
         break;
     }
-
   };
 
   componentWillMount() {
-    this.unsubscribe = store.subscribe(() => { // subscribing
-      this.setState({
-        todos: this.filterTodosView(store.getState().widgets.todos, store.getState().widgets.visibilityFilter),
-        inputValue: store.getState().widgets.inputValue,
-      });
-    });
-
-    store.dispatch(getDataFromApi())
-  }
-
-  componentWillUnmount() {
-    this.unsubscribe(); // unsubscribe
+    this.props.handleGetData();
   }
 
   render() {
@@ -87,19 +68,19 @@ export default class Widgets6 extends React.Component {
         <Widgets6button filter='SHOW_INCOMPLETED'/>&nbsp;&nbsp;
         <br/>
 
-        <input value={this.state.inputValue} onChange={this.handleInputChange} />
+        <input value={this.props.inputValue} onChange={this.props.handleInputChange} />
         <br/>
-        <button onClick={this.handleClick}>
+        <button onClick={this.props.handleClick.bind(this, this.props.inputValue)}>
           Add Todo
         </button>
 
-        <button onClick={ this.handleGetData }>
+        <button onClick={ this.props.handleGetData }>
           get data from api
         </button>
 
         <ul>
-          { this.state.todos.map( (todo) => (
-            <Widgets6listItem key={todo.id} text={todo.text} onClick={this.handleToggle.bind(this,todo)} completed={todo.completed}/>
+          { this.filterTodosView(this.props.todos, this.props.visibilityFilter).map( (todo) => (
+            <Widgets6listItem key={todo.id} text={todo.text} onClick={this.props.handleToggle.bind(this,todo)} completed={todo.completed}/>
           ))}
 
 
@@ -109,3 +90,5 @@ export default class Widgets6 extends React.Component {
     );
   }
 }
+
+export default connect(mapStateToProps, mapDispatchToProps)(Widgets6);
