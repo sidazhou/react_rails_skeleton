@@ -14,6 +14,7 @@ import Widgets2 from './components/widgets/Widgets2.jsx';
 import MuiexamplesController from './components/muiexamples/MuiexamplesController.jsx';
 
 // import TestingAKAnotUsed from './util/reduxExamples.js';
+import TestingAKAnotUsed from './util/jsOOExamples.js';
 
 // tap plugin for material ui, remove upon release of react 1.x
 import injectTapEventPlugin from 'react-tap-event-plugin';
