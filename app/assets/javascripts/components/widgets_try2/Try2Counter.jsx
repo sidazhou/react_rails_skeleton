@@ -2,6 +2,7 @@
 
 import React from 'react';
 import store from '../../_react_store.js';
+import { increment, decrement } from '../../actions/WidgetTry2Actions.js';
 
 export default class Try2Counter extends React.Component {
   constructor(props) {
@@ -12,11 +13,11 @@ export default class Try2Counter extends React.Component {
   };
 
   handleIncrement = (event) => {
-    store.dispatch({ type: 'INCREMENT' });
+    store.dispatch(increment());
   };
 
   handleDecrement = (event) => {
-    store.dispatch({ type: 'DECREMENT' });
+    store.dispatch(decrement());
   };
 
   componentWillMount() {
