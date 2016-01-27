@@ -55,6 +55,10 @@ folder naming convention
 ./my_folder/
 http://stackoverflow.com/a/20927507/2202107
 
+file naming convention
+CapitalCase.jsx
+everything_else_under_score (? like jquery)
+
 url naming convention
 /my-url/
 http://stackoverflow.com/questions/10302179/hyphen-underscore-or-camelcase-as-word-delimiter-in-uris

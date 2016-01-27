@@ -7,6 +7,10 @@ export default class Widgets3 extends React.Component {
     this.state = {liked: false};
   };
 
+  static propTypes = {
+    // message: React.PropTypes.boolean,
+  };
+
   static defaultProps = {
     message: ['elike','haven\'t eliked']
   };

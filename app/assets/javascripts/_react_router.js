@@ -2,7 +2,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Router, Route, browserHistory, IndexRoute, Link } from 'react-router';
-import { Provider } from 'react-redux'
+import { Provider } from 'react-redux';
 import store from './_react_store.js';
 
 import WidgetsController from './components/widgets/WidgetsController.jsx';
