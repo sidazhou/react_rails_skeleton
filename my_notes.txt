@@ -83,3 +83,7 @@ BREAK DOWN TO MULTIPLE "STORES" (AKA REDUCERS)
 look at folder structure of
 https://medium.com/lexical-labs-engineering/redux-best-practices-64d59775802e#.4aonbdvmk
 
+=======================================
+namespacing of actions
+https://github.com/rackt/redux/issues/786
+https://github.com/erikras/ducks-modular-redux
